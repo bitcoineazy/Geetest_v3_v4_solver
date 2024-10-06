@@ -1,5 +1,10 @@
 ## Geetest v3, v4 captcha solver (inject, interceptor, redefine solver)
 
+![views](https://raw.githubusercontent.com/bitcoineazy/Geetest_v3_v4_solver/traffic/traffic-Geetest_v3_v4_solver/views.svg)
+![views per week](https://raw.githubusercontent.com/bitcoineazy/Geetest_v3_v4_solver/traffic/traffic-Geetest_v3_v4_solver/views_per_week.svg)
+![clones](https://raw.githubusercontent.com/bitcoineazy/Geetest_v3_v4_solver/traffic/traffic-Geetest_v3_v4_solver/clones.svg)
+![clones per week](https://raw.githubusercontent.com/bitcoineazy/Geetest_v3_v4_solver/traffic/traffic-Geetest_v3_v4_solver/clones_per_week.svg)
+
 ### Mechanism
 1. Script is injected via console into page
 ```js
@@ -7,7 +12,7 @@ const preloadFile = fs.readFileSync('./inject_captcha_solver.js', 'utf8');
 await page.evaluate(preloadFile);
 ```
 2. "initGeetest" & "initGeetest4" that invoke captcha redefined into custom solutions
-3. "window.captchaObj" & "window.captchaObjV4" represent interceptor and page sends geetest v3, v4 config and   callbacks into these objects for us to track, modify and validate
+3. "window.captchaObj" & "window.captchaObjV4" represent interceptor and page sends geetest v3, v4 config and callbacks into these objects for us to track, modify and validate
 4. On captcha initialization script creates "captcha widget" on page with necessary paramaters to input into solver -  node js example:
    ```js
     // Extract the data-gt and data-challenge attributes from created widget on page

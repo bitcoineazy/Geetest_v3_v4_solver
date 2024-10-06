@@ -8,7 +8,7 @@ on:
 
 jobs:
   run:
-    name: Make GitHub Traffic to Badge
+    name: Make GitHub Traffic to Badge Geetest
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code

@@ -76,10 +76,10 @@ solverResult = await solver.geetest({
     // validate successfully solved captcha by invoking onSuccessCallback of captchaObjEvents
     await page.evaluate(() => {
         if (typeof captchaObjEvents !== 'undefined' && typeof captchaObj !== 'undefined') {
-        captchaObjEvents.onSuccessCallback(captchaObj);
-        console.log('onSuccessCallback executed successfully');
+            captchaObjEvents.onSuccessCallback(captchaObj);
+            console.log('onSuccessCallback executed successfully');
         } else {
-        console.error('captchaObjEvents or captchaObj is not defined');
+            onsole.error('captchaObjEvents or captchaObj is not defined');
         }
     });
     console.log('onSuccessCallback executed successfully');

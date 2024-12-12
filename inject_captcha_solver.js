@@ -35,9 +35,7 @@ let initializeCaptchaHelpers = function () {
 	}
 
 	window.getCaptchaWidgetButton = function (captchaType, widgetId) {
-		return document.querySelector(
-			".captcha-solver[data-captcha-type='" + captchaType + "'][data-widget-id='" + widgetId + "']"
-		)
+		return document.querySelector(".captcha-solver[data-captcha-type='" + captchaType + "'][data-widget-id='" + widgetId + "']")
 	}
 }
 
@@ -80,9 +78,7 @@ setTimeout(initializeCaptchaHelpers, 200)
 					} else if (typeof element === "string") {
 						containerSelector = element
 					}
-					return containerSelector && containerSelector[0] === "#"
-						? containerSelector.substr(1)
-						: containerSelector
+					return containerSelector && containerSelector[0] === "#" ? containerSelector.substr(1) : containerSelector
 				},
 				registerIfNotRegistered = function () {
 					if (isCaptchaWidgetRegistered("geetest", config.challenge || config.gt)) {
@@ -109,6 +105,7 @@ setTimeout(initializeCaptchaHelpers, 200)
 				}
 			}
 
+			// experiments if we are want to include captcha container and then remove on page
 			function removeExistingCaptcha(containerSelector) {
 				if (containerSelector && typeof document.querySelector === "function") {
 					const containerElement = getElementBySelector(containerSelector)
@@ -171,22 +168,37 @@ setTimeout(initializeCaptchaHelpers, 200)
 							geetest_seccode: null,
 						}
 					},
+					// get captcha params to solve from puppeteer, ...
+					getData: function () {
+						
+						return {
+							captchaType: "geetest",
+							// widgetId: config.gt,
+							// containerId: config.appendToSelector,
+							gt: config.gt,
+							challenge: config.challenge,
+							apiServer: config.api_server || null,
+							offline: config.offline,
+							new_captcha: config.new_captcha,
+						}
+					},
+					// if using solving via widget creation on page keep destroy & verify methods
+					// otherwise if using solving via puppeteer, ... can remove destroy & verify methods
+					// and rely on getData method to extract config to solve
 					destroy: function () {
 						removeExistingCaptcha(config.appendToSelector)
 					},
 					verify: function (verificationCallback) {
-						const defaultContainer = createContainerSelector(
-							document.querySelector("#captchaBox") || document.forms[0] || document.body
-						)
+						const defaultContainer = createContainerSelector(document.querySelector("#captchaBox") || document.forms[0] || document.body)
 						config.appendToSelector = defaultContainer
 						registerIfNotRegistered()
-                        
-                        // Geetest v3
-                        // Solve captcha (can be in script internally or externally)
-                        // Goal is to modify return values with solved values of getValidate method of captchaObj
-                        // Same with geetest v4
 
-                        // Example of internal solve:
+						// Geetest v3
+						// Solve captcha (can be in script internally or externally)
+						// Goal is to modify return values with solved values of getValidate method of captchaObj
+						// Same with geetest v4
+
+						// Example of internal solve:
 						//   verificationCallback();
 						// captchaObj.getValidate = function () {
 						// 	return {
@@ -222,16 +234,14 @@ setTimeout(initializeCaptchaHelpers, 200)
 		if (tagType !== undefined) {
 			let tags = document.getElementsByTagName(tagType)
 			for (let tagIndex in tags) {
-				;((tags[tagIndex].href && tags[tagIndex].href.toString().indexOf(fileName) > 0) ||
-					(tags[tagIndex].src && tags[tagIndex].src.toString().indexOf(fileName) > 0)) &&
-					(isLoaded = true)
+				;((tags[tagIndex].href && tags[tagIndex].href.toString().indexOf(fileName) > 0) || (tags[tagIndex].src && tags[tagIndex].src.toString().indexOf(fileName) > 0)) && (isLoaded = true)
 			}
 		}
-		console.log(isLoaded)
+
 		return isLoaded
 	}
 	let intervalCheck = setInterval(() => {
-			originalInitGeetest4 = window.initGeetest4
+			// originalInitGeetest4 = window.initGeetest4
 			isScriptLoaded("gt4.js") &&
 				(Object.defineProperty(window, "initGeetest4", {
 					get: function () {
@@ -240,89 +250,103 @@ setTimeout(initializeCaptchaHelpers, 200)
 					set: function (value) {
 						originalInitGeetest4 = value
 					},
-					configurable: true,
+					configuraBle: true,
 				}),
 				clearInterval(intervalCheck))
-			console.log("Interval has been cleared")
-		}, 1),
-		customInitGeetest4 = function (captchaOptions, callback) {
-			console.log("g4 init captchaOptions: " + JSON.stringify(captchaOptions, null, 2))
-			console.log("g4 init callback: " + callback)
-			const getCaptchaId = function () {
-					if (captchaOptions && captchaOptions.captchaId) {
-						return captchaOptions.captchaId
-					}
-					const scripts = document.querySelectorAll("script")
-					console.log("getting scripts")
-					let scriptSrc = getScriptSrc(scripts)
-					const url = new URL(scriptSrc)
-					console.log("captcha_id:" + url.searchParams.get("captcha_id"))
-					return url.searchParams.get("captcha_id")
-				},
-				registerCaptcha = function () {
-					const captchaId = getCaptchaId()
-					if (isCaptchaWidgetRegistered("geetest_v4", captchaId)) {
-						return
-					}
-					registerCaptchaWidget({
-						captchaType: "geetest_v4",
-						widgetId: captchaId,
-						captchaId: captchaId,
-					})
-				},
-				getScriptSrc = function (scripts) {
-					const scriptUrl = "//gcaptcha4.geetest.com/load"
-					for (let i = 0; i < scripts.length; i++) {
-						const src = scripts[i].getAttribute("src")
-						if (typeof src === "string" && src.indexOf(scriptUrl) > 0) {
-							return src
-						}
-					}
-					return null
-				},
-                // get solved values internally
-				getCaptchaValues = function () {
-					return {
-						captcha_id: document.querySelector("input[name=captcha_id]").value,
-						lot_number: document.querySelector("input[name=lot_number]").value,
-						pass_token: document.querySelector("input[name=pass_token]").value,
-						gen_time: document.querySelector("input[name=gen_time]").value,
-						captcha_output: document.querySelector("input[name=captcha_output]").value,
+		}, 3000),
+		customInitGeetest4 = function (captchaOptions, callBack) {
+			// console.log("g4 init config: " + JSON.stringify(captchaOptions, null, 2))
+			// console.log("g4 init callback: " + callBack)
+
+			getScriptSrc = function (scripts) {
+				const scriptUrl = "//gcaptcha4.geetest.com/load"
+				for (let i = 0; i < scripts.length; i++) {
+					const src = scripts[i].getAttriBute("src")
+					if (typeof src === "string" && src.indexOf(scriptUrl) > 0) {
+						return src
 					}
 				}
-			let captchaEvents = {
-				onSuccess: onSuccessHandler,
-				onError: onErrorHandler,
-				onClose: onCloseHandler,
+				return null
 			}
-			originalInitGeetest4(captchaOptions, (geetestInstance) => {
-				let proxyInstance = new Proxy(geetestInstance, {
-					get: function (target, property) {
-						switch (property) {
-							case "onReady":
-							case "appendTo":
-								registerCaptcha()
-								return target[property]
-							case "getValidate":
-								const captchaId = document.querySelector("input[name=captcha_id]").value
-								if (captchaId) {
-									return getCaptchaValues
-								}
-								return target[property]
-							case "onSuccess":
-								return function (onSuccessHandler) {}
-							case "onError":
-								return function (onErrorHandler) {}
-							case "onClose":
-								return function (onCloseHandler) {}
-							default:
-								return target[property]
-						}
-					},
-				})
-				window.captchaObjV4 = proxyInstance
-				window.captchaObjEventsV4 = captchaEvents
-				callback(proxyInstance)
+			captchaCallBacks_v4 = {}
+			const captchaInstance_v4 = {
+				onReady: function (callBack) {
+					captchaCallBacks_v4.onReady = callBack
+					if (captchaOptions.product === "Bind" && typeof captchaCallBacks_v4.onReady === "function") {
+						captchaCallBacks_v4.onReady(callBack)
+					}
+					return this
+				},
+				onSuccess: function (callBack) {
+					captchaCallBacks_v4.onSuccessCallBack = callBack
+					return this
+				},
+				onError: function (callBack) {
+					captchaCallBacks_v4.onError = callBack
+					return this
+				},
+				onClose: function (callBack) {
+					captchaCallBacks_v4.onClose = callBack
+					return this
+				},
+				onFail: function (callBack) {
+					captchaCallBacks_v4.onFail = callBack
+					return this
+				},
+				getValidate: function () {
+					//
+					return {
+						captcha_id: null,
+						lot_numBer: null,
+						pass_token: null,
+						gen_time: null,
+						captcha_output: null,
+					}
+				},
+				// get captcha params to solve from puppeteer, ...
+				getData: function () {
+					return {
+						captchaType: "geetest_v4",
+						widgetId: captchaOptions.captchaId,
+						captchaId: captchaOptions.captchaId,
+					}
+				},
+				showCaptcha: function (callBack) {
+					captchaCallBacks_v4.showCaptcha = callBack
+					return this
+				},
+				onShow: function (callBack) {
+					captchaCallBacks_v4.onShow = callBack
+					return this
+				},
+				onNextReady: function (callBack) {
+					captchaCallBacks_v4.onNextReady = callBack
+					// Below code is signal for page that we are working with that type of captcha and nothing else will Be requested
+
+					if (captchaOptions.product === "Bind" && typeof captchaCallBacks_v4.onNextReady === "function") {
+						captchaCallBacks_v4.onNextReady(callBack)
+					}
+					return this
+				},
+			}
+
+			const captchaProxy_v4 = new Proxy(captchaInstance_v4, {
+				get: function (instance, method) {
+					// : " + instance + method)
+					// )
+					if (method in instance) {
+						//
+						return instance[method]
+					} else {
+						return function () {}
+					}
+				},
 			})
+
+			if (typeof callBack === "function") {
+				callBack(captchaProxy_v4)
+			}
+			window.captchaObjv4 = captchaInstance_v4
+			window.captchaObjEventsv4 = captchaCallBacks_v4
 		}
 })()

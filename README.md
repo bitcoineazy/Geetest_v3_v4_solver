@@ -51,17 +51,26 @@ const captchaData = await page.evaluate(() => {
 ```
 5. Solve captcha via api, etc, ...
 ```js
-// Example geetest3 solver
+
 const TwoCaptcha = require("@2captcha/captcha-solver")
 const solver = new TwoCaptcha.Solver("api-key")
 
 const currentUrl = page.url()
 const browserUserAgent = await browser.userAgent()
 
+// Example geetest3 solver
 solverResult = await solver.geetest({
     pageurl: currentUrl,
     gt: gtConfigData.dataGt,
     challenge: gtConfigData.dataChallenge,
+    userAgent: browserUserAgent,
+    proxy: ,    // Add your proxy settings if needed
+    proxytype:  // Add your proxy type if needed
+})
+// geetest4 solver
+solverResult = await solver.geetest({
+    pageurl: currentUrl,
+    captcha_id: captchaId,
     userAgent: browserUserAgent,
     proxy: ,    // Add your proxy settings if needed
     proxytype:  // Add your proxy type if needed

@@ -2,8 +2,8 @@
   {
     "path": "/bitcoineazy/Geetest_v3_v4_solver",
     "title": "GitHub - bitcoineazy/Geetest_v3_v4_solver: Geetest v3 v4 interceptor solver",
-    "count": 10,
-    "uniques": 10
+    "count": 8,
+    "uniques": 8
   },
   {
     "path": "/bitcoineazy/Geetest_v3_v4_solver/tree/main/.github/workflows",
@@ -12,14 +12,14 @@
     "uniques": 2
   },
   {
-    "path": "/bitcoineazy/Geetest_v3_v4_solver/blob/main/inject_captcha_solver.js",
-    "title": "Geetest_v3_v4_solver/inject_captcha_solver.js at main · bitcoineazy/Geetest_v...",
-    "count": 2,
-    "uniques": 2
-  },
-  {
     "path": "/bitcoineazy/Geetest_v3_v4_solver/blob/main/.github/workflows/workflow.yml",
     "title": "Geetest_v3_v4_solver/.github/workflows/workflow.yml at main · bitcoineazy/Gee...",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/proxy_u/en-ru.ru.581242d7-68865e34-e798ae72-74722d776562/https/github.com/bitcoineazy/Geetest_v3_v4_solver/blob/main/README.md",
+    "title": "Geetest_v3_v4_solver/README.md at main · bitcoineazy/Geetest_v3_v4_solver · G...",
     "count": 1,
     "uniques": 1
   }

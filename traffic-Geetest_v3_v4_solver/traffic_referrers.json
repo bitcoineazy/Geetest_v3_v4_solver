@@ -10,12 +10,12 @@
     "uniques": 2
   },
   {
-    "referrer": "yandex.ru",
+    "referrer": "chatgpt.com",
     "count": 1,
     "uniques": 1
   },
   {
-    "referrer": "chatgpt.com",
+    "referrer": "yandex.ru",
     "count": 1,
     "uniques": 1
   }

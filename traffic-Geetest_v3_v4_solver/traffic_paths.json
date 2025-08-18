@@ -1,27 +1,9 @@
 [
   {
     "path": "/bitcoineazy/Geetest_v3_v4_solver",
-    "title": "GitHub - bitcoineazy/Geetest_v3_v4_solver: Geetest v3 v4 interceptor solver",
-    "count": 4,
-    "uniques": 3
-  },
-  {
-    "path": "/bitcoineazy/Geetest_v3_v4_solver/blob/be18b563ca146194763dc04ab6540b903c17343a/inject_captcha_solver.js",
-    "title": "Geetest_v3_v4_solver/inject_captcha_solver.js at be18b563ca146194763dc04ab654...",
-    "count": 2,
-    "uniques": 1
-  },
-  {
-    "path": "/bitcoineazy/Geetest_v3_v4_solver/commits/traffic",
-    "title": "Commits · bitcoineazy/Geetest_v3_v4_solver",
-    "count": 2,
-    "uniques": 1
-  },
-  {
-    "path": "/bitcoineazy/Geetest_v3_v4_solver/tree/be18b563ca146194763dc04ab6540b903c17343a",
-    "title": "bitcoineazy/Geetest_v3_v4_solver at be18b563ca146194763dc04ab6540b903c17343a",
-    "count": 2,
-    "uniques": 1
+    "title": "bitcoineazy/Geetest_v3_v4_solver: Geetest v3 v4 interceptor solver",
+    "count": 3,
+    "uniques": 2
   },
   {
     "path": "/bitcoineazy/Geetest_v3_v4_solver/blob/main/.github/workflows/workflow.yml",
@@ -50,12 +32,6 @@
   {
     "path": "/bitcoineazy/Geetest_v3_v4_solver/tree/main/.github/workflows",
     "title": "Geetest_v3_v4_solver/.github/workflows at main · bitcoineazy/Geetest_v3_v4_so...",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/bitcoineazy/Geetest_v3_v4_solver/tree/traffic",
-    "title": "bitcoineazy/Geetest_v3_v4_solver at traffic",
     "count": 1,
     "uniques": 1
   }

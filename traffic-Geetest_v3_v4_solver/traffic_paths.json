@@ -2,19 +2,13 @@
   {
     "path": "/bitcoineazy/Geetest_v3_v4_solver",
     "title": "bitcoineazy/Geetest_v3_v4_solver: Geetest v3 v4 interceptor solver",
-    "count": 12,
-    "uniques": 10
+    "count": 11,
+    "uniques": 9
   },
   {
     "path": "/bitcoineazy/Geetest_v3_v4_solver/blob/main/inject_captcha_solver.js",
     "title": "bitcoineazy/Geetest_v3_v4_solver: Geetest v3 v4 interceptor solver",
     "count": 2,
     "uniques": 2
-  },
-  {
-    "path": "/bitcoineazy/Geetest_v3_v4_solver/tree/main/.github/workflows",
-    "title": "bitcoineazy/Geetest_v3_v4_solver: Geetest v3 v4 interceptor solver",
-    "count": 1,
-    "uniques": 1
   }
 ]

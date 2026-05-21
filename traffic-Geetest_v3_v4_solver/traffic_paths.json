@@ -2,25 +2,13 @@
   {
     "path": "/bitcoineazy/Geetest_v3_v4_solver",
     "title": "Overview",
-    "count": 9,
-    "uniques": 5
+    "count": 11,
+    "uniques": 7
   },
   {
     "path": "/bitcoineazy/Geetest_v3_v4_solver/blob/main/inject_captcha_solver.js",
     "title": "/blob/main/inject_captcha_solver.js",
     "count": 3,
     "uniques": 2
-  },
-  {
-    "path": "/bitcoineazy/Geetest_v3_v4_solver/blob/main/README.md",
-    "title": "/blob/main/README.md",
-    "count": 1,
-    "uniques": 1
-  },
-  {
-    "path": "/bitcoineazy/Geetest_v3_v4_solver/blob/main/solver.py",
-    "title": "/blob/main/solver.py",
-    "count": 1,
-    "uniques": 1
   }
 ]

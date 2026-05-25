@@ -2,14 +2,14 @@
   {
     "path": "/bitcoineazy/Geetest_v3_v4_solver",
     "title": "Overview",
-    "count": 10,
-    "uniques": 7
+    "count": 13,
+    "uniques": 9
   },
   {
     "path": "/bitcoineazy/Geetest_v3_v4_solver/blob/main/inject_captcha_solver.js",
     "title": "/blob/main/inject_captcha_solver.js",
-    "count": 3,
-    "uniques": 2
+    "count": 4,
+    "uniques": 3
   },
   {
     "path": "/bitcoineazy/Geetest_v3_v4_solver/tree/main/.github/workflows",

@@ -2,14 +2,8 @@
   {
     "path": "/bitcoineazy/Geetest_v3_v4_solver",
     "title": "Overview",
-    "count": 13,
-    "uniques": 12
-  },
-  {
-    "path": "/bitcoineazy/Geetest_v3_v4_solver/blob/main/inject_captcha_solver.js",
-    "title": "/blob/main/inject_captcha_solver.js",
-    "count": 1,
-    "uniques": 1
+    "count": 10,
+    "uniques": 9
   },
   {
     "path": "/bitcoineazy/Geetest_v3_v4_solver/blob/traffic/traffic-Geetest_v3_v4_solver/clones.svg",
@@ -38,6 +32,12 @@
   {
     "path": "/bitcoineazy/Geetest_v3_v4_solver/tree/traffic/traffic-Geetest_v3_v4_solver",
     "title": "/tree/traffic/traffic-Geetest_v3_v4_solver",
+    "count": 1,
+    "uniques": 1
+  },
+  {
+    "path": "/bitcoineazy/geetest_v3_v4_solver",
+    "title": "Overview",
     "count": 1,
     "uniques": 1
   }

@@ -2,8 +2,14 @@
   {
     "path": "/bitcoineazy/Geetest_v3_v4_solver",
     "title": "Overview",
-    "count": 6,
-    "uniques": 5
+    "count": 11,
+    "uniques": 7
+  },
+  {
+    "path": "/bitcoineazy/Geetest_v3_v4_solver/blob/main/inject_captcha_solver.js",
+    "title": "/blob/main/inject_captcha_solver.js",
+    "count": 2,
+    "uniques": 1
   },
   {
     "path": "/bitcoineazy/Geetest_v3_v4_solver/blob/traffic/traffic-Geetest_v3_v4_solver/clones.svg",

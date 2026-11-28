@@ -2,14 +2,8 @@
   {
     "path": "/bitcoineazy/Geetest_v3_v4_solver",
     "title": "Overview",
-    "count": 18,
+    "count": 11,
     "uniques": 9
-  },
-  {
-    "path": "/bitcoineazy/Geetest_v3_v4_solver/tree/main/.github/workflows",
-    "title": "/tree/main/.github/workflows",
-    "count": 4,
-    "uniques": 1
   },
   {
     "path": "/bitcoineazy/geetest_v3_v4_solver",
@@ -18,9 +12,9 @@
     "uniques": 2
   },
   {
-    "path": "/bitcoineazy/Geetest_v3_v4_solver/blob/main/.github/workflows/workflow.yml",
-    "title": "/blob/main/.github/workflows/workflow.yml",
-    "count": 2,
+    "path": "/bitcoineazy/Geetest_v3_v4_solver/tree/main/.github/workflows",
+    "title": "/tree/main/.github/workflows",
+    "count": 1,
     "uniques": 1
   }
 ]
